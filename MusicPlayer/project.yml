@@ -1,0 +1,22 @@
+name: MusicPlayer
+options:
+  bundleIdPrefix: com.yourname
+  deploymentTarget:
+    iOS: "16.0"
+
+settings:
+  SWIFT_VERSION: "5.9"
+
+targets:
+  MusicPlayer:
+    type: application
+    platform: iOS
+    info:
+      path: MusicPlayer/Info.plist
+    sources:
+      - path: MusicPlayer
+    settings:
+      PRODUCT_BUNDLE_IDENTIFIER: com.yourname.MusicPlayer
+      INFOPLIST_FILE: MusicPlayer/Info.plist
+      IPHONEOS_DEPLOYMENT_TARGET: "16.0"
+      TARGETED_DEVICE_FAMILY: "1"
