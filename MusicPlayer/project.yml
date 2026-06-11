@@ -12,11 +12,11 @@ targets:
     type: application
     platform: iOS
     info:
-      path: Info.plist
+      path: MusicPlayer/Info.plist
     sources:
-      - path: .
+      - path: MusicPlayer
     settings:
       PRODUCT_BUNDLE_IDENTIFIER: com.fariszolj.MusicPlayer
-      INFOPLIST_FILE: Info.plist
+      INFOPLIST_FILE: MusicPlayer/Info.plist
       IPHONEOS_DEPLOYMENT_TARGET: "16.0"
       TARGETED_DEVICE_FAMILY: "1"
