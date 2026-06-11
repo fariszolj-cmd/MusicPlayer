@@ -17,9 +17,11 @@ jobs:
         run: brew install xcodegen
 
       - name: Generate Xcode project
+        working-directory: MusicPlayer
         run: xcodegen generate
 
       - name: Build .app
+        working-directory: MusicPlayer
         run: |
           xcodebuild -project MusicPlayer.xcodeproj \
             -scheme MusicPlayer \
@@ -33,7 +35,7 @@ jobs:
       - name: Package .ipa
         run: |
           mkdir -p Payload
-          cp -r "build/Build/Products/Release-iphoneos/MusicPlayer.app" Payload/
+          cp -r "MusicPlayer/build/Build/Products/Release-iphoneos/MusicPlayer.app" Payload/
           zip -r MusicPlayer.ipa Payload/
           rm -rf Payload/
 
