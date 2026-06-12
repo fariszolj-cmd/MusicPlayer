@@ -16,6 +16,7 @@ targets:
     sources:
       - path: .
     settings:
+      PRODUCT_NAME: MusicPlayer
       PRODUCT_BUNDLE_IDENTIFIER: com.fariszolj.MusicPlayer
       INFOPLIST_FILE: Info.plist
       IPHONEOS_DEPLOYMENT_TARGET: "16.0"

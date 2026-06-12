@@ -19,10 +19,13 @@ jobs:
       - name: Generate Xcode project
         run: xcodegen generate --spec MusicPlayer/project.yml
 
+      - name: List project contents
+        run: xcodebuild -project MusicPlayer.xcodeproj -list
+
       - name: Build .app
         run: |
           xcodebuild -project MusicPlayer.xcodeproj \
-            -scheme MusicPlayer \
+            -target MusicPlayer \
             -configuration Release \
             -derivedDataPath build \
             -destination 'generic/platform=iOS' \
