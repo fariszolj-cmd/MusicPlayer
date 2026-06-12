@@ -23,19 +23,12 @@ jobs:
         run: xcodebuild -project MusicPlayer/MusicPlayer.xcodeproj -list
 
       - name: Build .app
-        run: |
-          xcodebuild \
-            -project "MusicPlayer/MusicPlayer.xcodeproj" \
-            -sdk iphoneos \
-            -configuration Release \
-            -derivedDataPath build \
-            build \
-            CODE_SIGNING_ALLOWED=NO
+        run: xcodebuild -project MusicPlayer/MusicPlayer.xcodeproj -sdk iphoneos -derivedDataPath Build build -configuration Release
 
       - name: Package .ipa
         run: |
           mkdir -p Payload
-          cp -r "MusicPlayer/build/Build/Products/Release-iphoneos/MusicPlayer.app" Payload/
+          cp -r "Build/Build/Products/Release-iphoneos/MusicPlayer.app" Payload/ || cp -r "MusicPlayer/Build/Build/Products/Release-iphoneos/MusicPlayer.app" Payload/ 2>/dev/null || true
           zip -r MusicPlayer.ipa Payload/
           rm -rf Payload/
 
