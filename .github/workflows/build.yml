@@ -23,7 +23,14 @@ jobs:
         run: xcodebuild -project MusicPlayer/MusicPlayer.xcodeproj -list
 
       - name: Build .app
-        run: xcodebuild -project MusicPlayer/MusicPlayer.xcodeproj -configuration Release -derivedDataPath build -destination 'generic/platform=iOS' CODE_SIGNING_ALLOWED=NO build
+        run: |
+          xcodebuild \
+            -project "MusicPlayer/MusicPlayer.xcodeproj" \
+            -sdk iphoneos \
+            -configuration Release \
+            -derivedDataPath build \
+            build \
+            CODE_SIGNING_ALLOWED=NO
 
       - name: Package .ipa
         run: |
